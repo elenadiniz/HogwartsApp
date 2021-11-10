@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -64,6 +65,12 @@
                                             <action selector="luckButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SC3-k5-VfS"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arL-Nq-Io5">
+                                        <rect key="frame" x="30" y="543" width="364" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.98200553660000001" green="0.9769675136" blue="0.92723721270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -73,7 +80,9 @@
                                     <constraint firstItem="THZ-a5-0P5" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="FXx-Rl-WZv"/>
                                     <constraint firstAttribute="trailing" secondItem="Hbw-wG-vKW" secondAttribute="trailing" constant="20" id="GNn-Za-UR5"/>
                                     <constraint firstItem="dTz-PS-dYi" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="JsX-vc-omN"/>
+                                    <constraint firstItem="arL-Nq-Io5" firstAttribute="top" secondItem="THZ-a5-0P5" secondAttribute="bottom" constant="30" id="QFn-VP-OJT"/>
                                     <constraint firstItem="Hbw-wG-vKW" firstAttribute="top" secondItem="8NG-Oh-GOv" secondAttribute="bottom" constant="60" id="U1W-HR-ghD"/>
+                                    <constraint firstItem="arL-Nq-Io5" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="30" id="VPN-e5-NOz"/>
                                     <constraint firstAttribute="bottom" secondItem="dTz-PS-dYi" secondAttribute="bottom" constant="50" id="YxS-ar-qu9"/>
                                     <constraint firstItem="dTz-PS-dYi" firstAttribute="top" secondItem="THZ-a5-0P5" secondAttribute="bottom" constant="207" id="hZv-MX-mkq"/>
                                     <constraint firstItem="8NG-Oh-GOv" firstAttribute="top" secondItem="ZZu-E5-QGP" secondAttribute="top" constant="40" id="pza-MZ-X79"/>
@@ -104,6 +113,7 @@
                         <outlet property="hatImageView" destination="Hbw-wG-vKW" id="vZI-h8-dKs"/>
                         <outlet property="nameTextField" destination="THZ-a5-0P5" id="N6d-cC-SnV"/>
                         <outlet property="suffleButton" destination="dTz-PS-dYi" id="vU6-X8-UVJ"/>
+                        <outlet property="textHouse" destination="arL-Nq-Io5" id="FKX-xb-O5g"/>
                         <outlet property="viewMain" destination="ZZu-E5-QGP" id="1F0-12-s97"/>
                     </connections>
                 </viewController>
