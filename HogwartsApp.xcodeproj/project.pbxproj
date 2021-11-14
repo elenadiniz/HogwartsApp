@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		654FE921273C463800C49540 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FE920273C463800C49540 /* UserDefaults+Extension.swift */; };
 		90D609B333E6E4BBC503B928 /* Pods_HogwartsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98B05813A671335F641BDBB /* Pods_HogwartsApp.framework */; };
 		B4163A48271CAFD900B6C89E /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4163A47271CAFD900B6C89E /* CharactersViewController.swift */; };
 		B4163A4A271CAFE500B6C89E /* CharactersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4163A49271CAFE500B6C89E /* CharactersDetailViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		654FE920273C463800C49540 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		B4163A47271CAFD900B6C89E /* CharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		B4163A49271CAFE500B6C89E /* CharactersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersDetailViewController.swift; sourceTree = "<group>"; };
 		B4163A4B271CB02900B6C89E /* BeastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeastsViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				B4E4DDA0270D30F300C1347B /* UITextFieldHelper.swift */,
 				B4EE2D5C2714C8AB003C8D61 /* defaultLinks.swift */,
 				B43FE70B2724A38600FDE5FE /* QuizHelper.swift */,
+				654FE920273C463800C49540 /* UserDefaults+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				B4CB3FD3273344DC00581DA8 /* UserManager.swift in Sources */,
 				B4E4DDA1270D30F300C1347B /* UITextFieldHelper.swift in Sources */,
 				B4A8006D2734345F0014DA53 /* ServiceError.swift in Sources */,
+				654FE921273C463800C49540 /* UserDefaults+Extension.swift in Sources */,
 				B4EE2D712714DF73003C8D61 /* HatViewController.swift in Sources */,
 				B416E3DF272493D40076DF66 /* Alert.swift in Sources */,
 				B4163A4E271CB03100B6C89E /* BeastsDetailViewController.swift in Sources */,
