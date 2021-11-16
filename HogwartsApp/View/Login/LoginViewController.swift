@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var viewMain: UIView!
     @IBOutlet weak var contentView: GradientView!
     @IBOutlet weak var logoImageView: UIImageView!
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupView()
     }
@@ -52,7 +52,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func tappedLoginButton(_ sender: UIButton) {
-//        self.continueToHome()
         if validateForm() == true {
             do {
                 let email = emailTextField.text ?? ""
@@ -61,12 +60,21 @@ class LoginViewController: UIViewController {
                 FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
                     guard let strongSelf = self else {
                         return
-                }
-                    guard error == nil else {
-                        print("usuário logado no Firebase")
-                        return
                     }
-                    strongSelf.continueToHome()
+                    
+                    let userEmail = Auth.auth().currentUser?.email
+                    
+                    if error == nil {
+                        print("usuário logado no Firebase")
+                        strongSelf.continueToHome()
+                    } else {
+                        if email != userEmail {
+                            strongSelf.passwordTextField.setErrorColor()
+                            strongSelf.emailTextField.setErrorColor()
+                            strongSelf.erroEmailLabel.isHidden = false
+                            strongSelf.erroEmailLabel.text = "Conta não encontrada! Verifique os dados informados ou cadastre-se"
+                        }
+                    }
                 }
             }
         }
@@ -77,39 +85,39 @@ class LoginViewController: UIViewController {
         if(showPassword == true) {
             passwordTextField.isSecureTextEntry = false
             showPasswordButton.setImage(UIImage(named: "eye.slashed.fill"), for: .normal)
-                } else {
-                    passwordTextField.isSecureTextEntry = true
-                    showPasswordButton.setImage(UIImage(named: "eye.fill"), for: .normal)
-                }
-                showPassword = !showPassword
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            showPasswordButton.setImage(UIImage(named: "eye.fill"), for: .normal)
+        }
+        showPassword = !showPassword
     }
     
     func isUserLoggedIn() -> Bool {
-      return Auth.auth().currentUser != nil
+        return Auth.auth().currentUser != nil
         return false
     }
     
-        fileprivate func validateForm() -> Bool {
-            if emailTextField.text!.isEmpty ||
-                !emailTextField.text!.contains(".") ||
-                !emailTextField.text!.contains("@") ||
-                emailTextField.text!.count <= 5 {
-                emailTextField.setErrorColor()
-                self.erroEmailLabel.isHidden = false
-                self.erroEmailLabel.text = "Verifique o e-mail informado"
-                return false
-            }
-
-            if passwordTextField.text!.isEmpty ||
-                passwordTextField.text!.count < 5 {
-                passwordTextField.setErrorColor()
-                self.erroEmailLabel.isHidden = false
-                self.erroEmailLabel.text = "Verifique a senha informada"
-                return false
-            }
-
-            return true
+    fileprivate func validateForm() -> Bool {
+        if emailTextField.text!.isEmpty ||
+            !emailTextField.text!.contains(".") ||
+            !emailTextField.text!.contains("@") ||
+            emailTextField.text!.count <= 5 {
+            emailTextField.setErrorColor()
+            self.erroEmailLabel.isHidden = false
+            self.erroEmailLabel.text = "Verifique o e-mail informado"
+            return false
         }
+        
+        if passwordTextField.text!.isEmpty ||
+            passwordTextField.text!.count < 5 {
+            passwordTextField.setErrorColor()
+            self.erroEmailLabel.isHidden = false
+            self.erroEmailLabel.text = "Verifique a senha informada"
+            return false
+        }
+        
+        return true
+    }
     
     fileprivate func continueToHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -119,7 +127,7 @@ class LoginViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(vc)
     }
-
+    
 }
 
 //MARK: - TextField properties

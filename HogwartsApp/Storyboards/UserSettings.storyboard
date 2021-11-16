@@ -379,9 +379,9 @@ E-mail enviado para:</string>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="98" id="OAk-ig-Tp7"/>
                                                 </constraints>
-                                                <string key="text">Seu e-mail foi alterado! Em breve, você receberá uma confirmação de sua alteração.
+                                                <string key="text">Sucesso. E-mail alterado! Uma confirmação de alteração será encaminhada para o antigo endereço de e-mail cadastrado em nosso sistema. 
 
-E-mail de confirmação enviado para:</string>
+Seu novo e-mail de login é: </string>
                                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="14"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -408,7 +408,7 @@ E-mail de confirmação enviado para:</string>
                                             <constraint firstAttribute="trailing" secondItem="lcO-VF-lDv" secondAttribute="trailing" id="n8F-WI-OQW"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informe o e-mail associado à sua conta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-sv-JUy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informe o novo e-mail de login:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDC-sv-JUy">
                                         <rect key="frame" x="20" y="300" width="374" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="vDf-XD-FVQ"/>

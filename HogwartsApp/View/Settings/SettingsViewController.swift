@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
     
     var imagePicker: UIImagePickerController!
     var buttonName = ["Dados Pessoais", "E-mail", "Senha", "Sair"]
+    var userData: UserData!
     
     private let imageView = UIImageView(image: UIImage(named: "profile_icon"))
     
@@ -33,7 +34,7 @@ class SettingsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupUI()
-        setupUserInfo()
+        getUserData()
     }
     
     private func setupUI() {
@@ -53,6 +54,8 @@ class SettingsViewController: UIViewController {
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])
         
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        nameLabel.isHidden = true
         houseView.layer.cornerRadius = 5
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
@@ -124,14 +127,30 @@ class SettingsViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
-    func setupUserInfo() {
-        guard let user = Auth.auth().currentUser else { return }
-        let fileName = "user/\(user.uid)/profileImages/"
-        let storageReference = Storage.storage().reference().child(fileName)
-        let reference = storageReference
-        let imageView: UIImageView = self.profileImageView
-        let placeholderImage = UIImage(named: "\(fileName)")
-        imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+    func getUserData() {
+        let db = Database.database().reference()
+        let userID = Auth.auth().currentUser?.uid
+        db.child("users").child(userID!).observe(DataEventType.value, with: { snapshot in
+            do {
+                if snapshot.value == nil {
+                    print(ServiceError.failureReading)
+                } else {
+                    let jsonData = try JSONSerialization.data(withJSONObject: snapshot.value as Any, options: [])
+                    self.userData = try JSONDecoder().decode(UserData.self, from: jsonData)
+                    
+                    if (self.userData != nil) {
+                        self.setLabels(userData: self.userData)
+                    }
+                }
+            } catch {
+                print(ServiceError.failure)
+            }
+        })
+    }
+    
+    func setLabels(userData: UserData) {
+        nameLabel.isHidden = false
+        self.nameLabel.text = userData.usersName
     }
     
     func uploadImage(imageUrl: URL) {

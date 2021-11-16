@@ -34,7 +34,7 @@ class EmailEditorViewController: UIViewController {
     }
     
     @IBAction func tappedChangeEmailButton(_ sender: UIButton) {
-        if validateForm() {
+        if validateForm() == true {
             self.view.endEditing(true)
             guard let emailUser = self.emailTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
             
@@ -44,7 +44,7 @@ class EmailEditorViewController: UIViewController {
                     self.infoLabel.isHidden = true
                     self.viewSuccess.isHidden = false
                     self.emailLabel.text = self.emailTextField.text?.trimmingCharacters(in: .whitespaces)
-                    self.changeEmailButton.isEnabled = false
+                    self.changeEmailButton.isHidden = true
                 }
             }
         } else {
@@ -63,6 +63,9 @@ class EmailEditorViewController: UIViewController {
                 currentUser?.updateEmail(to: emailTextField.text ?? "") { erro in
                     if let error = erro {
                         print("Erro ao alterar email. \(String(describing: error))")
+                        completion(false)
+                    } else {
+                        completion(true)
                     }
                 }
             }
@@ -71,8 +74,8 @@ class EmailEditorViewController: UIViewController {
     
     fileprivate func validateForm() -> Bool {
         let status = emailTextField.text!.isEmpty ||
-            !emailTextField.text!.contains(".") ||
-            !emailTextField.text!.contains("@") ||
+        !emailTextField.text!.contains(".") ||
+        !emailTextField.text!.contains("@") ||
         emailTextField.text!.count <= 5
         
         if status {
@@ -103,14 +106,14 @@ extension EmailEditorViewController {
     @IBAction func emailBeginEditing(_ sender: Any) {
         emailTextField.setEditingColor()
         infoLabel.textColor = .gray
-        infoLabel.text = "Informe o e-mail associado à sua conta"
+        infoLabel.text = "Informe o novo e-mail de sua conta"
     }
     
     @IBAction func emailEditing(_ sender: Any) {
         emailTextField.setEditingColor()
         
         infoLabel.textColor = .gray
-        infoLabel.text = "Informe o e-mail associado à sua conta"
+        infoLabel.text = "Informe o novo e-mail de sua conta"
     }
     
     @IBAction func emailEndEditing(_ sender: Any) {

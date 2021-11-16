@@ -18,21 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let userStoryboard = UIStoryboard(name: "User", bundle: nil)
-            
-            if user != nil {
-                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
-            } else {
-                let home = userStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                self.window?.rootViewController = home
-                self.window?.makeKeyAndVisible()
-            }
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+        
+//        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let userStoryboard = UIStoryboard(name: "User", bundle: nil)
+//
+//            if user != nil {
+//                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+//                self.window?.rootViewController = controller
+//                self.window?.makeKeyAndVisible()
+//            } else {
+//                let home = userStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//                self.window?.rootViewController = home
+//                self.window?.makeKeyAndVisible()
+//            }
+//        }
         return true
     }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setupUI()
+        authenticateUserAndConfigureView()
         
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: self,
@@ -77,6 +79,16 @@ class HomeViewController: UIViewController {
         userVC.providesPresentationContextTransitionStyle = true
         userVC.definesPresentationContext = true
         navigationController?.pushViewController(userVC, animated: true)
+    }
+    
+    func authenticateUserAndConfigureView() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let userStoryboard = UIStoryboard(name: "User", bundle: nil)
+                let home = userStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                self.present(home, animated: true, completion: nil)
+            }
+        }
     }
 }
 

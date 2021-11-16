@@ -12,7 +12,7 @@ import FirebaseDatabase
 import CryptoKit
 
 class CreateAccountViewController: UIViewController {
-
+    
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var contentView: GradientView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -49,7 +49,7 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupView()
         self.pickerCountry.delegate = self
@@ -112,12 +112,12 @@ class CreateAccountViewController: UIViewController {
         
         if(showPassword == true) {
             passwordTextField.isSecureTextEntry = false
-                    showPasswordButton.setImage(UIImage(systemName: "eye.slashed.fill"), for: .normal)
-                } else {
-                    passwordTextField.isSecureTextEntry = true
-                    showPasswordButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-                }
-                showPassword = !showPassword
+            showPasswordButton.setImage(UIImage(systemName: "eye.slashed.fill"), for: .normal)
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            showPasswordButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        }
+        showPassword = !showPassword
     }
     
     @IBAction func didTappedConfirmShowPassword(_ sender: UIButton) {
@@ -125,11 +125,11 @@ class CreateAccountViewController: UIViewController {
         if(showPassword == true) {
             confirmPasswordTextField.isSecureTextEntry = false
             showConfirmPasswordButton.setImage(UIImage(systemName: "eye.slashed.fill"), for: .normal)
-                } else {
-                    confirmPasswordTextField.isSecureTextEntry = true
-                    showConfirmPasswordButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-                }
-                showPassword = !showPassword
+        } else {
+            confirmPasswordTextField.isSecureTextEntry = true
+            showConfirmPasswordButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        }
+        showPassword = !showPassword
     }
     
     @IBAction func tappedSignInButton(_ sender: Any) {
@@ -137,11 +137,11 @@ class CreateAccountViewController: UIViewController {
             do {
                 let email = emailTextField.text ?? ""
                 let password = passwordTextField.text ?? ""
-        
+                
                 FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
                     guard let strongSelf = self else {
                         return
-                }
+                    }
                     guard error == nil else {
                         strongSelf.showCreateAccount(email: email, password: password)
                         return
@@ -165,7 +165,7 @@ class CreateAccountViewController: UIViewController {
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
                 guard let strongSelf = self else {
                     return
-            }
+                }
                 guard error == nil && result != nil else {
                     print("Usuário criado no Firebase")
                     
@@ -276,66 +276,66 @@ class CreateAccountViewController: UIViewController {
     }
     
     fileprivate func validateForm() -> Bool {
-            if nameTextField.text!.isEmpty {
+        if nameTextField.text!.isEmpty {
+            nameTextField.setErrorColor()
+            nameErrorLabel.text = "É necessário fornecer o nome completo"
+            return false
+        } else {
+            let fullNameArr = nameTextField.text!.components(separatedBy: " ")
+            if fullNameArr.count <= 1 {
                 nameTextField.setErrorColor()
                 nameErrorLabel.text = "É necessário fornecer o nome completo"
                 return false
-            } else {
-                let fullNameArr = nameTextField.text!.components(separatedBy: " ")
-                if fullNameArr.count <= 1 {
-                    nameTextField.setErrorColor()
-                    nameErrorLabel.text = "É necessário fornecer o nome completo"
-                    return false
-                }
             }
-
-            if emailTextField.text!.isEmpty ||
-                !emailTextField.text!.contains(".") ||
-                !emailTextField.text!.contains("@") ||
-                emailTextField.text!.count <= 5 {
-                emailTextField.setErrorColor()
-                emailErrorLabel.text = "E-mail inválido."
-                return false
-            }
-
-            if confirmEmailTextField.text!.isEmpty ||
-                !confirmEmailTextField.text!.contains(".") ||
-                !confirmEmailTextField.text!.contains("@") ||
-                confirmEmailTextField.text!.count <= 5 {
-                confirmEmailTextField.setErrorColor()
-                emailErrorLabel.text = "E-mail inválido."
-                return false
-            }
-
-            if confirmEmailTextField.text?.trimmingCharacters(in: .whitespaces) != emailTextField.text?.trimmingCharacters(in: .whitespaces) {
-                emailTextField.setErrorColor()
-                confirmEmailTextField.setErrorColor()
-                emailErrorLabel.text = "E-mails devem ser iguais."
-                return false
-            }
-
-            if passwordTextField.text!.isEmpty ||
-                passwordTextField.text!.count < 6 {
-                passwordTextField.setErrorColor()
-                passwordErrorLabel.text = "Verifique a senha informada, ela deverá ter no mínimo 6 caracteres."
-                return false
-            }
-
-            if confirmPasswordTextField.text!.isEmpty ||
-                confirmPasswordTextField.text!.count < 6 {
-                confirmPasswordTextField.setErrorColor()
-                passwordErrorLabel.text = "Verifique a senha informada, ela deverá ter no mínimo 6 caracteres."
-                return false
-            }
-
-            if confirmPasswordTextField.text != passwordTextField.text {
-                passwordTextField.setErrorColor()
-                confirmPasswordTextField.setErrorColor()
-                passwordErrorLabel.text = "Senhas devem ser iguais."
-                return false
-            }
-            return true
         }
+        
+        if emailTextField.text!.isEmpty ||
+            !emailTextField.text!.contains(".") ||
+            !emailTextField.text!.contains("@") ||
+            emailTextField.text!.count <= 5 {
+            emailTextField.setErrorColor()
+            emailErrorLabel.text = "E-mail inválido."
+            return false
+        }
+        
+        if confirmEmailTextField.text!.isEmpty ||
+            !confirmEmailTextField.text!.contains(".") ||
+            !confirmEmailTextField.text!.contains("@") ||
+            confirmEmailTextField.text!.count <= 5 {
+            confirmEmailTextField.setErrorColor()
+            emailErrorLabel.text = "E-mail inválido."
+            return false
+        }
+        
+        if confirmEmailTextField.text?.trimmingCharacters(in: .whitespaces) != emailTextField.text?.trimmingCharacters(in: .whitespaces) {
+            emailTextField.setErrorColor()
+            confirmEmailTextField.setErrorColor()
+            emailErrorLabel.text = "E-mails devem ser iguais."
+            return false
+        }
+        
+        if passwordTextField.text!.isEmpty ||
+            passwordTextField.text!.count < 6 {
+            passwordTextField.setErrorColor()
+            passwordErrorLabel.text = "Verifique a senha informada, ela deverá ter no mínimo 6 caracteres."
+            return false
+        }
+        
+        if confirmPasswordTextField.text!.isEmpty ||
+            confirmPasswordTextField.text!.count < 6 {
+            confirmPasswordTextField.setErrorColor()
+            passwordErrorLabel.text = "Verifique a senha informada, ela deverá ter no mínimo 6 caracteres."
+            return false
+        }
+        
+        if confirmPasswordTextField.text != passwordTextField.text {
+            passwordTextField.setErrorColor()
+            confirmPasswordTextField.setErrorColor()
+            passwordErrorLabel.text = "Senhas devem ser iguais."
+            return false
+        }
+        return true
+    }
 }
 
 //MARK: - PickerView properties
