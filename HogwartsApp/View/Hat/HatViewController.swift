@@ -15,17 +15,18 @@ class HatViewController: UIViewController {
     
     var house: String = ""
     
+    @IBOutlet weak var myView: UIView!
     @IBOutlet weak var textHouse: UILabel!
     @IBOutlet weak var viewMain: GradientView!
     @IBOutlet weak var hatImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var suffleButton: ButtonGradient!
+    @IBOutlet weak var suffleButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-       
+        self.suffleButton.isHidden = false
+        self.nameTextField.isHidden = false
         let value = UserDefaults.standard.string(forKey: "myHouse")
         print(value)
         
@@ -50,20 +51,41 @@ class HatViewController: UIViewController {
         
     }
     
-    @IBAction func luckButton(_ sender: UIButton) {
+    @IBAction func luckButton(_ sender: UIButton) -> Void{
         print("Cliked")
         
+       nameIsEmpty()
         
-
-        nameHouse.shuffle()
-        
-        self.houseSelected = nameHouse.first ?? ""
-        self.viewMain.firstColor = self.backgroundColor(name: nameHouse.first ?? "")
-        self.textHouse.text = "Sua casa sorteada foi: \(nameHouse.first ?? "")"
-        saveHouse()
     }
     
+    func nameIsEmpty()-> Void{
+    
+        let textName = self.nameTextField.text
+        if textName!.isEmpty{
+            self.suffleButton.isHidden = false
+            self.textHouse.text = "Preencha um nome!"
+            self.textHouse.textColor = UIColor.red
+            
+        }else{
+
+            nameHouse.shuffle()
+            
+            self.suffleButton.isHidden = true
+            self.houseSelected = nameHouse.first ?? ""
+            self.viewMain.firstColor = self.backgroundColor(name: nameHouse.first ?? "")
+            self.textHouse.text = "Sua casa sorteada foi: \(nameHouse.first ?? "")"
+            self.textHouse.textColor = UIColor.white
+            saveHouse()
+            
+            return self.nameTextField.isHidden = true
+        }
+        
+    }
+    
+    
     func backgroundColor(name: String) -> UIColor{
+        
+        
         print(name)
         switch name {
         case "Grifinória":

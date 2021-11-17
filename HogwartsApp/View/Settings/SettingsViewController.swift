@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
             let firebaseAuth = Auth.auth()
             do {
               try firebaseAuth.signOut()
-                UserDefaults.standard.clear()
+                //UserDefaults.standard.clear()
                 print("Usuário deslogado")
                 self.continueToLogin()
             } catch let signOutError as NSError {
