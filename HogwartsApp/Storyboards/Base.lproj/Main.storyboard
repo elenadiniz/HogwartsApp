@@ -186,7 +186,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhP-g0-esg" customClass="GradientView" customModule="HogwartsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2di-PQ-aIO">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon" translatesAutoresizingMaskIntoConstraints="NO" id="2di-PQ-aIO">
                                         <rect key="frame" x="30" y="40" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="JjS-Ei-pYs"/>
