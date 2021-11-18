@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
 class HomeViewController: UIViewController {
     
@@ -16,6 +17,9 @@ class HomeViewController: UIViewController {
     private var homeImageIcon = ["character_icon", "beast_icon", "quiz_icon", "hat"]
     private var homeNameIcon = ["Personagens", "Animais Fantásticos", "Quiz", "Chapéu Seletor"]
     private let imageView = UIImageView(image: UIImage(named: "profile_icon"))
+    
+    
+    override func viewDidAppear(_ animated: Bool) { getImageUser() }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +82,22 @@ class HomeViewController: UIViewController {
         userVC.providesPresentationContextTransitionStyle = true
         userVC.definesPresentationContext = true
         navigationController?.pushViewController(userVC, animated: true)
+    }
+    
+        func getImageUser() {
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        let storageReference = Storage.storage().reference().child(uid)
+        
+        storageReference.getData(maxSize: (15 * 9999 * 9999)) { (data, error) in
+            if let err = error {
+            } else {
+                if let image  = data {
+                    let myImage: UIImage! = UIImage(data: image)
+                    self.imageView.image = myImage
+                }
+            }
+        }
     }
 }
 
