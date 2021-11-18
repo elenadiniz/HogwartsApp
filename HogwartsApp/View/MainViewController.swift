@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainViewController: UIViewController {
     
@@ -19,7 +20,12 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.loginButton.layer.cornerRadius = loginButton.layer.frame.height / 2
         self.loginButton.layer.borderWidth = 1
+        userDidLogin()
         }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        userDidLogin()
+    }
 
     @IBAction func tappedLoginButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -37,6 +43,22 @@ class MainViewController: UIViewController {
         vc.definesPresentationContext = true
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func userDidLogin() {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(controller)
+            } else {
+                let userStoryboard = UIStoryboard(name: "User", bundle: nil)
+                let home = userStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                home.providesPresentationContextTransitionStyle = true
+                home.definesPresentationContext = true
+                self.present(home, animated: true, completion: nil)
+            }
+        }
     }
 }
 
