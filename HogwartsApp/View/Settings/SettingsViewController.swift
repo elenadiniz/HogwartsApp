@@ -59,6 +59,13 @@ class SettingsViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         nameLabel.isHidden = true
         houseView.layer.cornerRadius = 5
+        
+        
+          
+            let value = UserDefaults.standard.string(forKey: "myHouse")
+            houseNameLabel.text = value
+            
+        
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         settingsTableView.frame = view.bounds
@@ -80,6 +87,9 @@ class SettingsViewController: UIViewController {
         static let NavBarHeightSmallState: CGFloat = 44
         /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
         static let NavBarHeightLargeState: CGFloat = 96.5
+        setupUserInfo()
+        colorLabel()
+        
     }
     
     @objc func openImagePicker(_ sender:Any) {
@@ -107,6 +117,8 @@ class SettingsViewController: UIViewController {
             let firebaseAuth = Auth.auth()
             do {
                 try firebaseAuth.signOut()
+              try firebaseAuth.signOut()
+                //UserDefaults.standard.clear()
                 print("Usuário deslogado")
                 self.continueToLogin()
             } catch let signOutError as NSError {
@@ -290,4 +302,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             self.alertLogOut()
         }
     }
-}
+    
+    func colorLabel()-> Void{
+        
+        
+        if houseNameLabel.text == "Grifinória"{
+            houseView.backgroundColor = UIColor(red: 0.48, green: 0.04, blue: 0.08, alpha: 1.00)
+        }else if houseNameLabel.text == "Lufa-lufa"{
+            houseView.backgroundColor = UIColor(red: 0.95, green: 0.69, blue: 0.10, alpha: 1.00)
+        }else if houseNameLabel.text == "Corvinal"{
+            houseView.backgroundColor = UIColor (red: 0.20, green: 0.32, blue: 0.52, alpha: 1.00)
+        }else if houseNameLabel.text == "Sonserina"{
+            houseView.backgroundColor = UIColor(red: 0.03, green: 0.24, blue: 0.14, alpha: 1.00)
+        }else{
+            houseView.backgroundColor = UIColor(red: 139, green: 106, blue: 51, alpha: 1.00)
+        }
+        
+        
+      
+        }
+    }
+
+
+    
+    
+
