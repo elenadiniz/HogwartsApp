@@ -30,12 +30,20 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        houseView.layer.cornerRadius = 5
+        
+        
+          
+            let value = UserDefaults.standard.string(forKey: "myHouse")
+            houseNameLabel.text = value
+            
+        
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         settingsTableView.frame = view.bounds
         settingsTableView.register(UINib(nibName: "ButtonTableCell", bundle: nil), forCellReuseIdentifier: "ButtonTableCell")
         setupUserInfo()
+        colorLabel()
+        
     }
     
     @objc func openImagePicker(_ sender:Any) {
@@ -218,4 +226,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             self.alertLogOut()
         }
     }
-}
+    
+    func colorLabel()-> Void{
+        
+        
+        if houseNameLabel.text == "Grifinória"{
+            houseView.backgroundColor = UIColor(red: 0.48, green: 0.04, blue: 0.08, alpha: 1.00)
+        }else if houseNameLabel.text == "Lufa-lufa"{
+            houseView.backgroundColor = UIColor(red: 0.95, green: 0.69, blue: 0.10, alpha: 1.00)
+        }else if houseNameLabel.text == "Corvinal"{
+            houseView.backgroundColor = UIColor (red: 0.20, green: 0.32, blue: 0.52, alpha: 1.00)
+        }else if houseNameLabel.text == "Sonserina"{
+            houseView.backgroundColor = UIColor(red: 0.03, green: 0.24, blue: 0.14, alpha: 1.00)
+        }else{
+            houseView.backgroundColor = UIColor(red: 139, green: 106, blue: 51, alpha: 1.00)
+        }
+        
+        
+      
+        }
+    }
+
+
+    
+    
+

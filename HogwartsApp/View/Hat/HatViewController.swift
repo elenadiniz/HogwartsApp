@@ -7,7 +7,16 @@
 
 import UIKit
 
-class HatViewController: UIViewController {
+protocol myHouseDelegate {
+    var myHouse: String { get }
+}
+
+class HatViewController: UIViewController, myHouseDelegate {
+    
+    var myHouse: String = ""
+    
+    
+
     
     var nameHouse:[String] = ["Grifinória", "Sonserina","Corvinal", "Lufa-lufa"]
     
@@ -28,7 +37,7 @@ class HatViewController: UIViewController {
         self.suffleButton.isHidden = false
         self.nameTextField.isHidden = false
         let value = UserDefaults.standard.string(forKey: "myHouse")
-        print(value)
+        
         
         UserDefaults.standard.signedInUser
         let house = UserDefaults.standard.myHouse
@@ -46,13 +55,13 @@ class HatViewController: UIViewController {
         
         
         let value = UserDefaults.standard.string(forKey: "myHouse")
-        print(value)
+        
         self.viewMain.firstColor = UserDefaults.UserDefaultsKeys.myHouse.backgroundColor(name: value ?? "")
         
     }
     
     @IBAction func luckButton(_ sender: UIButton) -> Void{
-        print("Cliked")
+    
         
        nameIsEmpty()
         
@@ -86,8 +95,9 @@ class HatViewController: UIViewController {
     func backgroundColor(name: String) -> UIColor{
         
         
-        print(name)
+        myHouse = name
         switch name {
+            
         case "Grifinória":
             return UIColor(red: 0.48, green: 0.04, blue: 0.08, alpha: 1.00)
         case "Lufa-lufa":
@@ -99,15 +109,15 @@ class HatViewController: UIViewController {
         default:
             return .black
         }
-    
+
+        
     }
-    
     func saveHouse(){
         // seta a string na chave selecionada
         UserDefaults.standard.set(nameHouse.first, forKey: "myHouse")
         // recupera a string da chave
         let value = UserDefaults.standard.string(forKey: "myHouse")
-        print(value)
+    
     }
     
 }
