@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,19 +35,19 @@
                                             <constraint firstAttribute="height" constant="280" id="hBs-uv-ZbJ"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arL-Nq-Io5">
-                                        <rect key="frame" x="25" y="505" width="364" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.98200553660000001" green="0.9769675136" blue="0.92723721270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome aqui" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THZ-a5-0P5">
-                                        <rect key="frame" x="20" y="428" width="374" height="34"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite seu nome aqui" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THZ-a5-0P5">
+                                        <rect key="frame" x="20" y="465" width="374" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="8xa-S6-781"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTz-PS-dYi" customClass="ButtonGradient" customModule="HogwartsApp" customModuleProvider="target">
-                                        <rect key="frame" x="23" y="744" width="369" height="39"/>
+                                        <rect key="frame" x="20" y="720" width="374" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="L0S-lg-gDE"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="INICIAR">
@@ -70,20 +69,18 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="8NG-Oh-GOv" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="7HW-1f-9JO"/>
-                                    <constraint firstItem="arL-Nq-Io5" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="25" id="EOd-AI-45n"/>
-                                    <constraint firstAttribute="trailing" secondItem="dTz-PS-dYi" secondAttribute="trailing" constant="22" id="FPS-ed-zPS"/>
+                                    <constraint firstAttribute="trailing" secondItem="THZ-a5-0P5" secondAttribute="trailing" constant="20" id="9Dl-bj-psn"/>
+                                    <constraint firstAttribute="trailing" secondItem="dTz-PS-dYi" secondAttribute="trailing" constant="20" id="ERx-is-RYU"/>
+                                    <constraint firstItem="THZ-a5-0P5" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="FXx-Rl-WZv"/>
                                     <constraint firstAttribute="trailing" secondItem="Hbw-wG-vKW" secondAttribute="trailing" constant="20" id="GNn-Za-UR5"/>
-                                    <constraint firstItem="dTz-PS-dYi" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="23" id="Ip7-ld-iNO"/>
-                                    <constraint firstItem="arL-Nq-Io5" firstAttribute="top" secondItem="THZ-a5-0P5" secondAttribute="bottom" constant="43" id="S2r-NU-fTo"/>
+                                    <constraint firstItem="dTz-PS-dYi" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="JsX-vc-omN"/>
                                     <constraint firstItem="Hbw-wG-vKW" firstAttribute="top" secondItem="8NG-Oh-GOv" secondAttribute="bottom" constant="60" id="U1W-HR-ghD"/>
-                                    <constraint firstAttribute="bottom" secondItem="dTz-PS-dYi" secondAttribute="bottom" constant="35" id="cTZ-sH-pnB"/>
-                                    <constraint firstItem="THZ-a5-0P5" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" symbolic="YES" id="cYS-wc-4FI"/>
-                                    <constraint firstAttribute="trailing" secondItem="THZ-a5-0P5" secondAttribute="trailing" constant="20" symbolic="YES" id="dIy-cN-34W"/>
-                                    <constraint firstItem="THZ-a5-0P5" firstAttribute="top" secondItem="Hbw-wG-vKW" secondAttribute="bottom" constant="23" id="ez6-ej-c5a"/>
-                                    <constraint firstAttribute="trailing" secondItem="arL-Nq-Io5" secondAttribute="trailing" constant="25" id="gfa-bd-O8e"/>
+                                    <constraint firstAttribute="bottom" secondItem="dTz-PS-dYi" secondAttribute="bottom" constant="50" id="YxS-ar-qu9"/>
+                                    <constraint firstItem="dTz-PS-dYi" firstAttribute="top" secondItem="THZ-a5-0P5" secondAttribute="bottom" constant="207" id="hZv-MX-mkq"/>
                                     <constraint firstItem="8NG-Oh-GOv" firstAttribute="top" secondItem="ZZu-E5-QGP" secondAttribute="top" constant="40" id="pza-MZ-X79"/>
                                     <constraint firstItem="Hbw-wG-vKW" firstAttribute="leading" secondItem="ZZu-E5-QGP" secondAttribute="leading" constant="20" id="wVP-h1-Jvx"/>
                                     <constraint firstAttribute="trailing" secondItem="8NG-Oh-GOv" secondAttribute="trailing" constant="20" id="z13-ly-cJr"/>
+                                    <constraint firstItem="THZ-a5-0P5" firstAttribute="top" secondItem="Hbw-wG-vKW" secondAttribute="bottom" constant="60" id="zIt-iJ-1EI"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
@@ -109,7 +106,6 @@
                         <outlet property="nameTextField" destination="THZ-a5-0P5" id="N6d-cC-SnV"/>
                         <outlet property="suffleButton" destination="dTz-PS-dYi" id="vU6-X8-UVJ"/>
                         <outlet property="titleLabel" destination="8NG-Oh-GOv" id="Cc4-Y4-fUu"/>
-                        <outlet property="textHouse" destination="arL-Nq-Io5" id="FKX-xb-O5g"/>
                         <outlet property="viewMain" destination="ZZu-E5-QGP" id="1F0-12-s97"/>
                     </connections>
                 </viewController>

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		620C15E16A065114DBA3E3C7 /* Pods_HogwartsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074AACF1D4F531890CC74CE0 /* Pods_HogwartsApp.framework */; };
-		654FE921273C463800C49540 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FE920273C463800C49540 /* UserDefaults+Extension.swift */; };
-		90D609B333E6E4BBC503B928 /* Pods_HogwartsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98B05813A671335F641BDBB /* Pods_HogwartsApp.framework */; };
 		B4163A48271CAFD900B6C89E /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4163A47271CAFD900B6C89E /* CharactersViewController.swift */; };
 		B4163A4A271CAFE500B6C89E /* CharactersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4163A49271CAFE500B6C89E /* CharactersDetailViewController.swift */; };
 		B4163A4C271CB02900B6C89E /* BeastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4163A4B271CB02900B6C89E /* BeastsViewController.swift */; };
@@ -70,7 +68,6 @@
 		074AACF1D4F531890CC74CE0 /* Pods_HogwartsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HogwartsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62D24E7011E44AFBC1D69ED5 /* Pods-HogwartsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HogwartsApp.debug.xcconfig"; path = "Target Support Files/Pods-HogwartsApp/Pods-HogwartsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6EDC2496F81D9EF8BF3208 /* Pods-HogwartsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HogwartsApp.release.xcconfig"; path = "Target Support Files/Pods-HogwartsApp/Pods-HogwartsApp.release.xcconfig"; sourceTree = "<group>"; };
-		654FE920273C463800C49540 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		B4163A47271CAFD900B6C89E /* CharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		B4163A49271CAFE500B6C89E /* CharactersDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersDetailViewController.swift; sourceTree = "<group>"; };
 		B4163A4B271CB02900B6C89E /* BeastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeastsViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +290,6 @@
 				B4E4DDA0270D30F300C1347B /* UITextFieldHelper.swift */,
 				B4EE2D5C2714C8AB003C8D61 /* defaultLinks.swift */,
 				B43FE70B2724A38600FDE5FE /* QuizHelper.swift */,
-				654FE920273C463800C49540 /* UserDefaults+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -582,7 +578,6 @@
 				B4163A48271CAFD900B6C89E /* CharactersViewController.swift in Sources */,
 				B4E4DDA1270D30F300C1347B /* UITextFieldHelper.swift in Sources */,
 				B4A8006D2734345F0014DA53 /* ServiceError.swift in Sources */,
-				654FE921273C463800C49540 /* UserDefaults+Extension.swift in Sources */,
 				B4EE2D712714DF73003C8D61 /* HatViewController.swift in Sources */,
 				B416E3DF272493D40076DF66 /* Alert.swift in Sources */,
 				B4163A4E271CB03100B6C89E /* BeastsDetailViewController.swift in Sources */,
