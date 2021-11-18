@@ -113,6 +113,7 @@ class PasswordRecoveryViewController: UIViewController {
           createAccountButton.layer.borderColor = UIColor.systemYellow.cgColor
           
           emailTextField.setEditingColor()
+          emailTextField.delegate = self
           
           if !email.isEmpty {
               emailTextField.text = email
@@ -138,3 +139,14 @@ class PasswordRecoveryViewController: UIViewController {
       }
       
   }
+
+//MARK: - TextField properties
+extension PasswordRecoveryViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.emailTextField {
+            emailTextField.resignFirstResponder()
+        }
+        return true
+    }
+}

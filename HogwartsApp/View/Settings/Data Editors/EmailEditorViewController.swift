@@ -95,6 +95,7 @@ extension EmailEditorViewController {
         changeEmailButton.layer.cornerRadius = changeEmailButton.bounds.height / 2
         closeButton.isHidden = true
         emailTextField.setEditingColor()
+        emailTextField.delegate = self
         titleLabel.isHidden = true
         title = "Alteração de E-mail"
         if !email.isEmpty {
@@ -118,6 +119,17 @@ extension EmailEditorViewController {
     
     @IBAction func emailEndEditing(_ sender: Any) {
         emailTextField.setEditingColor()
+    }
+}
+
+//MARK: - TextField properties
+extension EmailEditorViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.emailTextField {
+            emailTextField.resignFirstResponder()
+        }
+        return true
     }
 }
 

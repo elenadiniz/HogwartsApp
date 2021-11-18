@@ -5,7 +5,7 @@
 //  Created by William Henrique Gonçalves Ribeiro on 09/11/21.
 //
 
-struct UserData: Decodable {
+struct UserData: Codable {
 
     var usersName: String
     var userBdayDate: String

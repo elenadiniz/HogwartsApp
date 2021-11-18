@@ -29,14 +29,20 @@ class SettingsViewController: UIViewController {
     
     private let imageView = UIImageView(image: UIImage(named: "profile_icon"))
     
-    override func viewDidAppear(_ animated: Bool) { getImageUser() }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let value = UserDefaults.standard.string(forKey: "myHouse")
+        houseNameLabel.text = value
         setupUI()
         getUserData()
+        colorLabel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getImageUser()
+        colorLabel()
     }
     
     private func setupUI() {
@@ -131,8 +137,8 @@ class SettingsViewController: UIViewController {
     
     func getUserData() {
         let db = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        db.child("users").child(userID!).observe(DataEventType.value, with: { snapshot in
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        db.child("users").child(userID).observe(DataEventType.value, with: { snapshot in
             do {
                 if snapshot.value == nil {
                     print(ServiceError.failureReading)
@@ -224,6 +230,25 @@ class SettingsViewController: UIViewController {
                     self.imageView.image = myImage
                 }
             }
+        }
+    }
+    
+    func colorLabel() -> Void {
+        if houseNameLabel.text == "Grifinória" {
+            houseView.backgroundColor = UIColor(red: 0.48, green: 0.04, blue: 0.08, alpha: 1.00)
+            houseLogoImageView.image = UIImage(named: "gryffindor")
+        } else if houseNameLabel.text == "Lufa-lufa" {
+            houseView.backgroundColor = UIColor(red: 0.95, green: 0.69, blue: 0.10, alpha: 1.00)
+            houseLogoImageView.image = UIImage(named: "hufllepuff")
+        } else if houseNameLabel.text == "Corvinal" {
+            houseView.backgroundColor = UIColor (red: 0.20, green: 0.32, blue: 0.52, alpha: 1.00)
+            houseLogoImageView.image = UIImage(named: "ravenclaw")
+        } else if houseNameLabel.text == "Sonserina" {
+            houseView.backgroundColor = UIColor(red: 0.03, green: 0.24, blue: 0.14, alpha: 1.00)
+            houseLogoImageView.image = UIImage(named: "slytherin")
+        } else {
+            houseNameLabel.text = "Bem-vindo(a)"
+            houseView.backgroundColor = UIColor(red: 0.694, green: 0.561, blue: 0.294, alpha: 1)
         }
     }
 }

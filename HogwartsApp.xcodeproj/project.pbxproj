@@ -25,6 +25,7 @@
 		B430166E272083A500B7C199 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B430166D272083A500B7C199 /* HeaderView.swift */; };
 		B43FE70C2724A38600FDE5FE /* QuizHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43FE70B2724A38600FDE5FE /* QuizHelper.swift */; };
 		B45D30CE2713B77900DF2EA3 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B45D30CD2713B77900DF2EA3 /* User.storyboard */; };
+		B48702CF2746B96B006CB7F4 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48702CE2746B96B006CB7F4 /* UserDefaults+Extension.swift */; };
 		B4A8006D2734345F0014DA53 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A8006C2734345F0014DA53 /* ServiceError.swift */; };
 		B4DB0BB4273D826E004FE4C0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB0BB3273D826E004FE4C0 /* UserData.swift */; };
 		B4E4DD82270D25D500C1347B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4DD81270D25D500C1347B /* AppDelegate.swift */; };
@@ -85,6 +86,7 @@
 		B430166D272083A500B7C199 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		B43FE70B2724A38600FDE5FE /* QuizHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHelper.swift; sourceTree = "<group>"; };
 		B45D30CD2713B77900DF2EA3 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		B48702CE2746B96B006CB7F4 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		B4A8006C2734345F0014DA53 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		B4DB0BB3273D826E004FE4C0 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B4E4DD7E270D25D500C1347B /* HogwartsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HogwartsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +292,7 @@
 				B4E4DDA0270D30F300C1347B /* UITextFieldHelper.swift */,
 				B4EE2D5C2714C8AB003C8D61 /* defaultLinks.swift */,
 				B43FE70B2724A38600FDE5FE /* QuizHelper.swift */,
+				B48702CE2746B96B006CB7F4 /* UserDefaults+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				B4EE2D672714D9B2003C8D61 /* CharactersTableCell.swift in Sources */,
 				B4E4DD9F270D30E800C1347B /* ButtonGradient.swift in Sources */,
 				B4E4DDA7270D35AA00C1347B /* ButtonCollectionCell.swift in Sources */,
+				B48702CF2746B96B006CB7F4 /* UserDefaults+Extension.swift in Sources */,
 				B430165D2720614000B7C199 /* ButtonTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

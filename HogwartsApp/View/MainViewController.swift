@@ -22,10 +22,6 @@ class MainViewController: UIViewController {
         self.loginButton.layer.borderWidth = 1
         userDidLogin()
         }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        userDidLogin()
-    }
 
     @IBAction func tappedLoginButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -51,12 +47,6 @@ class MainViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(controller)
-            } else {
-                let userStoryboard = UIStoryboard(name: "User", bundle: nil)
-                let home = userStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                home.providesPresentationContextTransitionStyle = true
-                home.definesPresentationContext = true
-                self.present(home, animated: true, completion: nil)
             }
         }
     }

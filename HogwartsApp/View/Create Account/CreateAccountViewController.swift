@@ -92,12 +92,19 @@ class CreateAccountViewController: UIViewController {
         
         //TextField personalization properties
         emailTextField.setEditingColor()
+        emailTextField.delegate = self
         confirmEmailTextField.setEditingColor()
+        confirmEmailTextField.delegate = self
         passwordTextField.setEditingColor()
+        passwordTextField.delegate = self
         confirmPasswordTextField.setEditingColor()
+        confirmPasswordTextField.delegate = self
         nameTextField.setEditingColor()
+        nameTextField.delegate = self
         bdayTextField.setEditingColor()
+        bdayTextField.delegate = self
         countryTextField.setEditingColor()
+        countryTextField.delegate = self
         
         //PickerView properties
         self.countryTextField.inputView = self.pickerCountry
@@ -370,5 +377,28 @@ extension CreateAccountViewController: UIPickerViewDelegate, UIPickerViewDataSou
         default:
             print("Caiu no Default")
         }
+    }
+}
+
+//MARK: - TextField properties
+extension CreateAccountViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.nameTextField {
+            countryTextField.becomeFirstResponder()
+        } else if textField == self.countryTextField {
+            bdayTextField.becomeFirstResponder()
+        } else if textField == self.bdayTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == self.emailTextField {
+            confirmEmailTextField.becomeFirstResponder()
+        } else if textField == self.confirmEmailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == self.passwordTextField {
+            confirmPasswordTextField.becomeFirstResponder()
+        } else {
+            confirmPasswordTextField.resignFirstResponder()
+        }
+        return true
     }
 }

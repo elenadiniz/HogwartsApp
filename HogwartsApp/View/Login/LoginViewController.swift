@@ -38,8 +38,10 @@ class LoginViewController: UIViewController {
         
         //TextField personalization
         erroEmailLabel.isHidden = true
+        emailTextField.delegate = self
         emailTextField.setEditingColor()
         passwordTextField.setEditingColor()
+        passwordTextField.delegate = self
     }
     
     @IBAction func tappedRecoveryPasswordButton(_ sender: UIButton) {
@@ -136,10 +138,8 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.emailTextField {
             self.passwordTextField.becomeFirstResponder()
-        } else if textField == self.passwordTextField {
-            self.loginButton.becomeFirstResponder()
         } else {
-            self.loginButton.resignFirstResponder()
+            passwordTextField.resignFirstResponder()
         }
         return true
     }

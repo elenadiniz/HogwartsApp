@@ -19,8 +19,6 @@ class HomeViewController: UIViewController {
     private let imageView = UIImageView(image: UIImage(named: "profile_icon"))
     
     
-    override func viewDidAppear(_ animated: Bool) { getImageUser() }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +35,11 @@ class HomeViewController: UIViewController {
         )
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getImageUser()
+        
     }
     
     private func setupUI() {

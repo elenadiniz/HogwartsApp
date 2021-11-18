@@ -85,6 +85,7 @@ extension PasswordEditorViewController {
         titleLabel.isHidden = true
         title = "Alteração de Senha"
         emailTextField.setEditingColor()
+        emailTextField.delegate = self
         
         if !email.isEmpty {
             emailTextField.text = email
@@ -107,5 +108,16 @@ extension PasswordEditorViewController {
     
     @IBAction func emailEndEditing(_ sender: Any) {
         emailTextField.setEditingColor()
+    }
+}
+
+//MARK: - TextField properties
+extension PasswordEditorViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.emailTextField {
+            emailTextField.resignFirstResponder()
+        }
+        return true
     }
 }

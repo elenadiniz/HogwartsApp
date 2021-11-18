@@ -43,7 +43,9 @@ class PersonalDataViewController: UIViewController {
         nameTextField.setEditingColor()
         nameTextField.isEnabled = false
         bdayTextField.setEditingColor()
+        bdayTextField.delegate = self
         countryTextField.setEditingColor()
+        countryTextField.delegate = self
         closeButton.isHidden = true
         titleLabel.isHidden = true
         
@@ -85,8 +87,8 @@ class PersonalDataViewController: UIViewController {
     
     func getUserData() {
         let db = Database.database().reference()
-        let userID = Auth.auth().currentUser?.uid
-        db.child("users").child(userID!).observe(DataEventType.value, with: { snapshot in
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        db.child("users").child(userID).observe(DataEventType.value, with: { snapshot in
             do {
                 if snapshot.value == nil {
                     print(ServiceError.failureReading)
@@ -194,5 +196,17 @@ extension PersonalDataViewController: UIPickerViewDelegate, UIPickerViewDataSour
         default:
             print("Caiu no Default")
         }
+    }
+}
+
+extension PersonalDataViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.countryTextField {
+            bdayTextField.becomeFirstResponder()
+        } else {
+            bdayTextField.resignFirstResponder()
+        }
+        return true
     }
 }
