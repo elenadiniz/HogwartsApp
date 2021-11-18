@@ -289,7 +289,7 @@ class QuestionsViewController: UIViewController {
         //feedbackView.backgroundColor = UIColor.gray
         labelFeedback.textColor = UIColor.white
 
-        self.alert?.detailAlert(titulo: "Parabens, você concluiu o Quiz!", mensagem: "Sua pontuação \(round(grade))", completion: { success in
+        self.alert?.detailAlert(titulo: "Parabéns! Você concluiu o Quiz!", mensagem: "Sua pontuação foi: \(round(grade))", completion: { success in
 
 
             print("clicou no ok do botao alert")

@@ -84,7 +84,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(userVC, animated: true)
     }
     
-        func getImageUser() {
+    func getImageUser() {
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
         let storageReference = Storage.storage().reference().child(uid)

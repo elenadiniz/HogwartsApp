@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Sereia-1.png",
+      "filename" : "happy_harry.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Sereia.png",
+      "filename" : "happy_harry-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Sereia-2.png",
+      "filename" : "happy_harry-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

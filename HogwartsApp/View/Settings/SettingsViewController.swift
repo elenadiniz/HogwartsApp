@@ -37,7 +37,6 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupUI()
         getUserData()
-
     }
     
     private func setupUI() {
@@ -211,22 +210,22 @@ class SettingsViewController: UIViewController {
         }
     }
     
-           func getImageUser() {
-            guard let user = Auth.auth().currentUser else { return }
-            let uid = user.uid
-            let storageReference = Storage.storage().reference().child(uid)
-            
-            storageReference.getData(maxSize: (15 * 9999 * 9999)) { (data, error) in
-                if let err = error {
-                } else {
-                    if let image  = data {
-                        let myImage: UIImage! = UIImage(data: image)
-                        self.profileImageView.image = myImage
-                        self.imageView.image = myImage
-                    }
+    func getImageUser() {
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        let storageReference = Storage.storage().reference().child(uid)
+        
+        storageReference.getData(maxSize: (15 * 9999 * 9999)) { (data, error) in
+            if let err = error {
+            } else {
+                if let image  = data {
+                    let myImage: UIImage! = UIImage(data: image)
+                    self.profileImageView.image = myImage
+                    self.imageView.image = myImage
                 }
             }
         }
+    }
 }
 
 //MARK: - ImagePicker Delegate

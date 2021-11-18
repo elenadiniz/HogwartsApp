@@ -20,7 +20,7 @@ class Alert {
         
         let title: String = "Resultado da resposta"
         let msg: String = "certa ou errada?"
-        let image = UIImage(named: "harry feliz")
+        let image = UIImage(named: "happy_harry")
         
         
         let popup: PopupDialog = PopupDialog(title: title, message: msg, image: image)
@@ -58,7 +58,7 @@ class Alert {
         
         let title = titulo
         let message = mensagem
-        let image = UIImage(named: "harry feliz")
+        let image = UIImage(named: "happy_harry")
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message, image: image)
