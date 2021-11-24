@@ -16,7 +16,7 @@ HogwartsApp é um aplicativo de entretenimento do mundo de Harry Potter, impleme
 * Arquitetura: MVC
 * Acesso aos personagens consumidos da API HarryPotter
 * Acesso a Bestiario com Animais Fantásticos exibidos nos filmes e livros
-* Quiz feito com Alertas personalizados pelo PopDialog Framawork
+* Quiz feito com Alertas personalizados pelo PopDialog Framework
 * Integração com Firebase para autenticação, salvar e ler dados e demais serviços como alteração de e-mail e senha ou login automático.
 * UserDefaults para persistência local da casa escolhida pelo Chapéu Seletor
 
