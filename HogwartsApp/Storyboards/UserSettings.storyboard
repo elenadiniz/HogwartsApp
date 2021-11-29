@@ -21,17 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxr-jl-WZv" customClass="GradientView" customModule="HogwartsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dados Pessoais" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-kZ-iGs">
-                                        <rect key="frame" x="20" y="40" width="374" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="X0k-Rj-je2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="20"/>
-                                        <color key="textColor" red="1" green="0.76416509929999998" blue="0.36918386669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2zb-cu-BPc">
-                                        <rect key="frame" x="20" y="235" width="374" height="48"/>
+                                        <rect key="frame" x="20" y="148" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="AsP-Ry-dbu"/>
                                         </constraints>
@@ -39,7 +30,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="País" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k39-he-BF1">
-                                        <rect key="frame" x="20" y="323" width="177" height="48"/>
+                                        <rect key="frame" x="20" y="236" width="177" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="177" id="dAJ-cn-UAA"/>
                                             <constraint firstAttribute="height" constant="48" id="lER-cw-b0q"/>
@@ -48,7 +39,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data de Nascimento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ROY-v5-wSS">
-                                        <rect key="frame" x="217" y="323" width="177" height="48"/>
+                                        <rect key="frame" x="217" y="236" width="177" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="177" id="6EZ-Oh-Apt"/>
                                             <constraint firstAttribute="height" constant="48" id="DWM-6d-f7p"/>
@@ -105,20 +96,16 @@
                                     <constraint firstItem="k39-he-BF1" firstAttribute="leading" secondItem="nxr-jl-WZv" secondAttribute="leading" constant="20" id="4PZ-nm-5BP"/>
                                     <constraint firstItem="1Ou-EQ-wAN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="k39-he-BF1" secondAttribute="bottom" constant="80" id="BgM-ee-tqz"/>
                                     <constraint firstAttribute="trailing" secondItem="2zb-cu-BPc" secondAttribute="trailing" constant="20" id="FtM-1E-UcZ"/>
-                                    <constraint firstItem="5NV-kZ-iGs" firstAttribute="leading" secondItem="nxr-jl-WZv" secondAttribute="leading" constant="20" id="GoV-6I-xhz"/>
                                     <constraint firstAttribute="trailing" secondItem="ROY-v5-wSS" secondAttribute="trailing" constant="20" id="L6z-BF-FUL"/>
                                     <constraint firstItem="k39-he-BF1" firstAttribute="top" secondItem="2zb-cu-BPc" secondAttribute="bottom" constant="40" id="LGk-9A-bOy"/>
                                     <constraint firstItem="ROY-v5-wSS" firstAttribute="leading" secondItem="k39-he-BF1" secondAttribute="trailing" constant="20" id="LLr-6D-wiE"/>
                                     <constraint firstItem="2zb-cu-BPc" firstAttribute="leading" secondItem="nxr-jl-WZv" secondAttribute="leading" constant="20" id="Q2u-iH-N8B"/>
-                                    <constraint firstItem="2zb-cu-BPc" firstAttribute="top" secondItem="5NV-kZ-iGs" secondAttribute="bottom" constant="160" id="Sge-HO-lcJ"/>
                                     <constraint firstItem="W3d-aW-Oxw" firstAttribute="leading" secondItem="nxr-jl-WZv" secondAttribute="leading" constant="366" id="Shb-NR-0Tk"/>
-                                    <constraint firstItem="5NV-kZ-iGs" firstAttribute="top" secondItem="nxr-jl-WZv" secondAttribute="top" constant="40" id="TIk-9I-a17"/>
                                     <constraint firstItem="ROY-v5-wSS" firstAttribute="top" secondItem="2zb-cu-BPc" secondAttribute="bottom" constant="40" id="VKW-OB-eMV"/>
                                     <constraint firstItem="1Ou-EQ-wAN" firstAttribute="leading" secondItem="nxr-jl-WZv" secondAttribute="leading" constant="20" id="WGk-ZB-bql"/>
-                                    <constraint firstItem="2zb-cu-BPc" firstAttribute="top" secondItem="W3d-aW-Oxw" secondAttribute="bottom" constant="187" id="dSe-Vw-kYL"/>
+                                    <constraint firstItem="2zb-cu-BPc" firstAttribute="top" secondItem="W3d-aW-Oxw" secondAttribute="bottom" constant="100" id="dSe-Vw-kYL"/>
                                     <constraint firstAttribute="bottom" secondItem="1Ou-EQ-wAN" secondAttribute="bottom" constant="40" id="dcx-4t-Eua"/>
                                     <constraint firstItem="W3d-aW-Oxw" firstAttribute="top" secondItem="nxr-jl-WZv" secondAttribute="top" id="ddg-TH-8va"/>
-                                    <constraint firstAttribute="trailing" secondItem="5NV-kZ-iGs" secondAttribute="trailing" constant="20" id="uKe-7s-NRO"/>
                                     <constraint firstAttribute="trailing" secondItem="1Ou-EQ-wAN" secondAttribute="trailing" constant="20" id="xxX-Xz-UJx"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -154,7 +141,6 @@
                         <outlet property="countryTextField" destination="k39-he-BF1" id="V9G-ki-RJa"/>
                         <outlet property="nameTextField" destination="2zb-cu-BPc" id="8rx-My-QMv"/>
                         <outlet property="saveButton" destination="1Ou-EQ-wAN" id="tJF-RV-2Ce"/>
-                        <outlet property="titleLabel" destination="5NV-kZ-iGs" id="eZx-zr-SOQ"/>
                         <outlet property="viewMain" destination="nxr-jl-WZv" id="hKM-ZZ-0yh"/>
                     </connections>
                 </viewController>

@@ -10,7 +10,6 @@ import UIKit
 class QuizViewController: UIViewController {
     
     @IBOutlet weak var buttonGoQuiz: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +18,6 @@ class QuizViewController: UIViewController {
         self.buttonGoQuiz.layer.borderWidth = 1
         // Do any additional setup after loading the view.
         title = "Bem-Vindo ao Quiz"
-        titleLabel.isHidden = true
     }
     
     @IBAction func buttonClicked(_ sender: UIButton) {

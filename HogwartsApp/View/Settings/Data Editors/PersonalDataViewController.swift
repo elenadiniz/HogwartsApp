@@ -19,7 +19,6 @@ class PersonalDataViewController: UIViewController {
     @IBOutlet weak var bdayTextField: UITextField!
     @IBOutlet weak var saveButton: ButtonGradient!
     @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
     
     var arrayPaises: [String] = ["Brasil", "Angola", "Portugal", "Mexico", "USA"]
     var pickerCountry = UIPickerView()
@@ -47,7 +46,6 @@ class PersonalDataViewController: UIViewController {
         countryTextField.setEditingColor()
         countryTextField.delegate = self
         closeButton.isHidden = true
-        titleLabel.isHidden = true
         
         countryTextField.inputView = self.pickerCountry
         bdayTextField.inputView = self.datePicker

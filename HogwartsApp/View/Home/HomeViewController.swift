@@ -43,7 +43,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        if view.frame.width <= 375 {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        } else {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
         
         title = "Home"
         
@@ -150,5 +154,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             hatVC.definesPresentationContext = true
             navigationController?.pushViewController(hatVC, animated: true)
         }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: homeCollection.frame.width, height: 150)
     }
 }
