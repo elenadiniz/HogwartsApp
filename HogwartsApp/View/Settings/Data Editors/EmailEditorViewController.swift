@@ -60,15 +60,18 @@ class EmailEditorViewController: UIViewController {
         if emailTextField.text != nil {
             db.child("users").child(userID!).updateChildValues(["userEmail" : emailTextField.text!])
             if emailTextField.text != userEmail {
-                currentUser?.updateEmail(to: emailTextField.text ?? "") { erro in
-                    if let error = erro {
-                        print("Erro ao alterar email. \(String(describing: error))")
-                        completion(false)
-                    } else {
-                        completion(true)
+                do {
+                    currentUser?.updateEmail(to: emailTextField.text ?? "") { erro in
+                        if let error = erro {
+                            print("Erro ao alterar email. \(String(describing: error))")
+                            completion(false)
+                        } else {
+                            completion(true)
+                        }
                     }
                 }
             }
+            completion(true)
         }
     }
     
